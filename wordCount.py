@@ -33,8 +33,9 @@ instant_read = ""
 
 while True:
     if (instant_read := os.read(iFileFd, 1).decode()):
-        if instant_read == " " or instant_read == "," or instant_read =="\n" or instant_read == ".":
-            input_dict = dict_add(input_read, input_dict)
+        if instant_read == " " or instant_read == "," or instant_read =="\n" or instant_read == ".":      
+            if input_read != "":
+                input_dict = dict_add(input_read, input_dict)
             input_read = ""
         else:
             input_read = input_read + instant_read.lower()
